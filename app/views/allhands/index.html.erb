@@ -27,13 +27,13 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>All Hands</h1>
+                <%= image_tag "logo.png", class: "img-responsive center-block center-block-top image-half"%>
                 <hr>
                 <p>¡Optimiza las reuniones con tu equipo!</p>
                   <% if current_user %>
-                  <HR>
                     Signed in as <strong><%= current_user.name %></strong>!<BR>
                     <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-primary btn-xl page-scroll" %>
+
                    <% else %>
                     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" , class: "btn btn-primary btn-xl page-scroll"%>
                   <% end %>

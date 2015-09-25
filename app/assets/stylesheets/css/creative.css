@@ -4,6 +4,11 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/*$color-primario: #344F60;
+$color-vivo: #FC6868;*/
+
+
+
 html,
 body {
     width: 100%;
@@ -16,16 +21,16 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: #f05f40;
+    border-color: #344F60;
     border-width: 3px;
 }
 
 hr.light {
-    border-color: #fff;
+    border-color: #344F60;
 }
 
 a {
-    color: #f05f40;
+    color: #344F60;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -49,10 +54,11 @@ p {
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.5;
+    color: #344F60;
 }
 
 .bg-primary {
-    background-color: #f05f40;
+    background-color: #FC6868;
 }
 
 .bg-dark {
@@ -89,7 +95,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
-    color: #f05f40;
+    color: #344F60;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -107,12 +113,12 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #f05f40;
+    color: #344F60;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important;
+    color: #344F60!important;
     background-color: transparent;
 }
 
@@ -123,12 +129,12 @@ aside {
 
 @media(min-width:768px) {
     .navbar-default {
-        border-color: rgba(255,255,255,.3);
+        border-color: #344F60;
         background-color: transparent;
     }
 
     .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255,255,255,.7);
+        color: #344F60;
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
@@ -138,7 +144,7 @@ aside {
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: rgba(255,255,255,.7);
+        color: #344F60;
     }
 
     .navbar-default .nav > li>a:hover,
@@ -147,18 +153,18 @@ aside {
     }
 
     .navbar-default.affix {
-        border-color: rgba(34,34,34,.05);
+        border-color: #344F60;
         background-color: #fff;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 14px;
-        color: #f05f40;
+        color: #344F60;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #eb3812;
+        color: #344F60;
     }
 
     .navbar-default.affix .nav > li>a,
@@ -168,7 +174,7 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #f05f40;
+        color: #344F60;
     }
 }
 
@@ -208,7 +214,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    color: rgba(255,255,255,.7);
+    color: #344F60;
 }
 
 @media(min-width:768px) {
@@ -323,7 +329,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #f05f40;
+    color: #344F60;
 }
 
 .no-gutter > [class*=col-] {
@@ -385,9 +391,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #f05f40;
+    border-color: #FC6868;
     color: #fff;
-    background-color: #f05f40;
+    background-color: #FC6868;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -428,12 +434,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #f05f40;
-    background-color: #f05f40;
+    border-color: #FC6868;
+    background-color: #FC6868;
 }
 
 .btn-primary .badge {
-    color: #f05f40;
+    color: #FC6868;
     background-color: #fff;
 }
 

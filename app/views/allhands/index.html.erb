@@ -1,37 +1,3 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">All Hands</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right navbar-padding-right">
-                <li>
-                  <% if current_user %>
-                    <p class="navbar-padding-top">
-                      <strong> ¡Hola <%= current_user.name %>! | <%= link_to "Salir", signout_path, id: "sign_out", class: "page-scroll" %> </strong>  
-                    </p>            
-                  <% else %>
-                    <p class="navbar-padding-top">
-                      <strong> <%= link_to "Entrar", "/auth/facebook", id: "sign_in" , class: "page-scroll"%></strong>  
-                    </p>  
-                  <% end %>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
-
 <header>
     <div class="header-content">             
       <div class="header-content-inner">
@@ -51,9 +17,6 @@
 </header>
 
 
-
-
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -62,7 +25,9 @@
         <h4 class="modal-title" id="myModalLabel">Comparte este ID, todos los que lo tengan se uniran al AllHands</h4>
       </div>
       <div class="modal-body">
-      <p><%=@key_call= create_key%></p>
+        <%unless @current_user.nil?%>
+          <p><%=@key_call= create_key(@current_user.id)%></p>
+        <%end%>
       </div>
       <div class="modal-footer">
         <%=link_to "Iniciar",allhands_path(key_call: @key_call), controller: "allhands", action: "create",method: "post", :class=> "btn btn-default"%>
@@ -81,49 +46,17 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Escribe el ID para unirte al AllHands</h4>
       </div>
-      <%#= form_for post do |f| %>
+      <%=form_for :call, url:validate_allhands_path do |f| %>
         <div class="modal-body">
-            <%=text_field :key, :key_call , :class=>'form-control',:placeholder => 'Clave'%>
+            <%=f.text_field :key , :class=>'form-control',:placeholder => 'Clave'%>
         </div>
         <div class="modal-footer">
-          <%=link_to "Iniciar", validate_allhands_path(key_call: :key), :class=> "btn btn-default"%>
+          <%= f.submit 'Iniciar', :class=> "btn btn-default" %>
+          <%#=link_to "Iniciar", validate_allhands_path, :class=> "btn btn-default"%>
           <%#=link_to "Cancelar",allhand_path, :class=> "btn btn-default", :data=>{:dismiss=>"modal"}%>
         </div>
-      <%# end %>
+      <% end %>
     </div>
   <%end%>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- jQuery -->
-  <script src="js/jquery.js"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/jquery.fittext.js"></script>
-  <script src="js/wow.min.js"></script>
-
-  <!-- Custom Theme JavaScript -->
-  <script src="js/creative.js"></script>
-
-

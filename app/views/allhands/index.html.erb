@@ -46,7 +46,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Escribe el ID para unirte al AllHands</h4>
       </div>
-      <%=form_for :call, url:validate_allhands_path do |f| %>
+      <%=form_for :call,url:validate_allhands_path do |f| %>
         <div class="modal-body">
             <%=f.text_field :key , :class=>'form-control',:placeholder => 'Clave'%>
         </div>

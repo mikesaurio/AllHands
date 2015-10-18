@@ -25,7 +25,6 @@ class AllhandsController < ApplicationController
 
   def validate(params)
       call_key = params[:call][:key]
-      puts '***********************'
       call = Call.where(id_call: call_key, is_active: true)
       unless call.blank?
         redirect_to allhand_path(call.last.id), notice: 'Bienvenido al AllHands.'

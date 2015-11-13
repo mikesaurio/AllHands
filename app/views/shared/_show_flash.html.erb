@@ -1,20 +1,20 @@
-<div class="col-md-12 margin-top-flash alert-class" id="alert-class">
+<div class="col-md-12 margin-top-flash">
   <div class="col-md-8 col-md-offset-2">
     <div class="row text-center">
       <%if notice%>
       <div class="alert alert-success" id = "alert-success">
         <%= notice%>
-        <%= javascript_tag "setInterval(function () {$('#alert-class').addClass('hide')}, 3000);"%>
+        <%= javascript_tag "setInterval(function () {$('#alert-success').addClass('hide')}, 3000);"%>
       </div>
       <%elsif error%>
       <div class="alert alert-error" id = "alert-error">
         <%= error%>
-        <%= javascript_tag "setInterval(function () {$('#alert-class').addClass('hide')}, 3000);"%>  
+        <%= javascript_tag "setInterval(function () {$('#alert-error').addClass('hide')}, 3000);"%>  
       </div>
       <%elsif alert%>
       <div class="alert alert-alert" id = "alert-alert">
         <%= alert%>
-        <%= javascript_tag "setInterval(function () {$('#alert-class').addClass('hide')}, 3000);"%>
+        <%= javascript_tag "setInterval(function () {$('#alert-alert').addClass('hide')}, 3000);"%>
       </div>
       <%end%>
     </div>

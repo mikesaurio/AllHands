@@ -29,6 +29,7 @@ gem 'haml'
 gem 'font-awesome-rails'
 
 gem 'omniauth-facebook', '~> 1.4.1'
+gem 'bootstrap-switch-rails', '~> 3.0.0'
 
 gem 'figaro'
 

@@ -31,7 +31,6 @@
       </div>
       <div class="modal-footer">
         <%=link_to "Iniciar",allhands_path(key_call: @key_call), controller: "allhands", action: "create",method: "post", :class=> "btn btn-default"%>
-        <%#=link_to "Cancelar", allhand_path, :class=> "btn btn-default", :data=>{:dismiss=>"modal"}%>
       </div>
     </div>
   </div>
@@ -52,8 +51,6 @@
         </div>
         <div class="modal-footer">
           <%= f.submit 'Iniciar', :class=> "btn btn-default" %>
-          <%#=link_to "Iniciar", validate_allhands_path, :class=> "btn btn-default"%>
-          <%#=link_to "Cancelar",allhand_path, :class=> "btn btn-default", :data=>{:dismiss=>"modal"}%>
         </div>
       <% end %>
     </div>

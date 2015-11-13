@@ -8,7 +8,7 @@ class AllhandsController < ApplicationController
   end
 
   def show
-  	
+  	@call = Call.where(id_admin: @current_user, is_active: true).last
   end
 
   def create

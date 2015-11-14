@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     get 'signout', to: 'sessions#destroy', as: 'signout'
 
     resources :sessions, only: [:create, :destroy]
+    resources :allhands do
+    	collection do
+      		get 'validate'
+    	end
+    end
 
   root 'allhands#index'
 end

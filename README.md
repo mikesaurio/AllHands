@@ -32,7 +32,7 @@ Permite crear una interacción entre los participantes de una llamada dandote la
 	
 ##Instalación:
 
-Puedes acceder al repositorio en [GitHub](https://github.com) de [Mi Negocio México](https://github.com/mikesaurio/AllHands)
+Puedes acceder al repositorio en [GitHub](https://github.com) de [AllHands](https://github.com/mikesaurio/AllHands)
 
 Clonamos el repositorio:
 

@@ -1,0 +1,24 @@
+%nav#mainNav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand.page-scroll{:href => "#page-top"} All Hands
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right.navbar-padding-right
+        %li
+          - if current_user
+            %p.navbar-padding-top
+              %strong
+                ¡Hola #{current_user.name}! | #{link_to "Salir", signout_path, id: "sign_out", class: "page-scroll"}
+          - else
+            %p.navbar-padding-top
+              %strong
+                = link_to "Entrar", "/auth/facebook", id: "sign_in" , class: "page-scroll"
+    / /.navbar-collapse
+  / /.container-fluid

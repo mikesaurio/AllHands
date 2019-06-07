@@ -1,0 +1,45 @@
+%header
+  .header-content
+    .header-content-inner
+      = image_tag "logo.png", class: "img-responsive center-block center-block-top image-half"
+      %hr/
+      %p.margin-top
+        ¡
+        %b Optimiza
+        las reuniones con tu equipo!
+      - if current_user
+        .page-content.inset
+          %p
+            ¿Qué te gustaría hacer?
+            %br/
+            %button.btn.btn-primary.btn-xl.page-scroll{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} Crear
+            %button.btn.btn-primary.btn-xl.page-scroll{"data-target" => "#myModal2", "data-toggle" => "modal", :type => "button"} Unirte
+
+
+#myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title Comparte este ID, todos los que lo tengan se uniran al AllHands
+      .modal-body
+        - unless @current_user.nil?
+          %p= @key_call= create_key(@current_user.id)
+      .modal-footer
+        = link_to "Iniciar",allhands_path(key_call: @key_call), controller: "allhands", action: "create",method: "post", :class=> "btn btn-default"
+
+
+#myModal2.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    = form_tag(root_path, method: "get") do
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#myModalLabel.modal-title Escribe el ID para unirte al AllHands
+        = form_for :call,url:validate_allhands_path do |f|
+          .modal-body
+            = f.text_field :key , :class=>'form-control',:placeholder => 'Clave'
+          .modal-footer
+            = f.submit 'Iniciar', :class=> "btn btn-default"

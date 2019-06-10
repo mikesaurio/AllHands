@@ -1,0 +1,25 @@
+postgresql: &postgresql
+ adapter: postgresql
+ host: localhost
+ min_messages: ERROR
+ pool: 5
+ timeout: 5000
+
+development:
+ <<: *postgresql
+ database: all_hands_development
+
+test:
+ <<: *postgresql
+ database: all_hands_test
+
+# [START production]
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  database: "all_hands_production"
+  host: <%= ENV['DB_HOST'] %>

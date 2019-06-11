@@ -12,13 +12,11 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right.navbar-padding-right
         %li
-          - if current_user
+          - if @current_user
             %p.navbar-padding-top
               %strong
-                ¡Hola #{current_user.name}! | #{link_to "Salir", signout_path, id: "sign_out", class: "page-scroll"}
+                ¡Hola #{@current_user.name}! | #{link_to "Salir", signout_path, id: "sign_out", class: "page-scroll"}
           - else
             %p.navbar-padding-top
               %strong
-                = link_to "Entrar", "/auth/facebook", id: "sign_in" , class: "page-scroll"
-    / /.navbar-collapse
-  / /.container-fluid
+                .page-scroll= google_sign_in_button 'Entrar', proceed_to: create_login_url , class: "page-scroll", id: "sign_in"

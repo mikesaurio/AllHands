@@ -36,6 +36,8 @@ build/
 
 config/application.yml
 *.DS_Store
+InitiativeAllHands-7e263998052f.json
+
 
 # Cloud 9
 /.c9/
@@ -45,3 +47,5 @@ deploy/data_bags/secrets/*
 deploy/nodes/*
 
 public/uploads/
+# Ignore master key for decrypting credentials and more.
+/config/master.key

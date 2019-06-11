@@ -8,14 +8,14 @@ class AllhandsController < ApplicationController
   end
 
   def show
-  	@call = Call.where(id_admin: @current_user, is_active: true).last
+  	@call = Call.where(id: params[:id], is_active: true).last
   end
 
   def create
 	unless params[:key_call].blank?
-    call = Call.where(id_admin: current_user.id, is_active: true)
+    call = Call.where(id_admin: @current_user.id, is_active: true)
     if call.blank?
-      call_id = Call.create(id_call: params[:key_call],id_admin: current_user.id, is_active: true)
+      call_id = Call.create(id_call: params[:key_call],id_admin: @current_user.id, is_active: true)
     else
       call_id = call.last
     end
@@ -25,9 +25,9 @@ class AllhandsController < ApplicationController
 
   def validate(params)
       call_key = params[:call][:key]
-      call = Call.where(id_call: call_key, is_active: true)
-      unless call.blank?
-        redirect_to allhand_path(call.last.id), notice: 'Bienvenido al AllHands.'
+      call = Call.find_by(id_call: call_key, is_active: true)
+      unless call.nil?
+        redirect_to allhand_path(call.id), notice: 'Bienvenido al AllHands.'
       else
         redirect_to allhands_path, error: 'No existe ninguna llamada con este ID.'
       end
@@ -35,7 +35,11 @@ class AllhandsController < ApplicationController
 
   private 
   def set_user
-    @current_user = current_user || nil
+    if User.exists?(cookies.signed[:user_id])
+      @current_user = User.find(cookies.signed[:user_id])
+    else
+      @current_user = nil
+    end
   end
 
 

@@ -25,9 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml'
 gem 'font-awesome-rails'
-gem 'omniauth-facebook'
+gem 'google_sign_in'
 gem 'bootstrap-switch-rails', '~> 3.0.0'
-gem 'figaro'
+
+gem 'google-cloud-storage'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

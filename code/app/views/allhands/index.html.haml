@@ -7,7 +7,7 @@
         ¡
         %b Optimiza
         las reuniones con tu equipo!
-      - if current_user
+      - if @current_user
         .page-content.inset
           %p
             ¿Qué te gustaría hacer?
@@ -38,7 +38,7 @@
           %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
             %span{"aria-hidden" => "true"} ×
           %h4#myModalLabel.modal-title Escribe el ID para unirte al AllHands
-        = form_for :call,url:validate_allhands_path do |f|
+        = form_for :call ,url:validate_allhands_path do |f|
           .modal-body
             = f.text_field :key , :class=>'form-control',:placeholder => 'Clave'
           .modal-footer
